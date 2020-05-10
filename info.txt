@@ -1,0 +1,50 @@
+﻿==============================================================
+구조 설명
+==============================================================
+[공지사항 게시판(bbs) / 업데이트 게시판(up) / 이벤트 게시판(event) / 문의 게시판(contact)]
+* com.bbs.command
+BbsCommand - 사용자로부터 순수 입력받는 값만 처리해주는 class
+
+* com.bbs.controller
+DeleteActionController - 게시글 삭제
+List - 게시글 목록
+Retrieve - 게시글 상세보기
+Search - 게시글 검색
+Update - 게시글 수정
+Write - 게시글 작성
+
+* com.bbs.dao
+DAO - 쿼리 메소드 class
+
+* com.bbs.dto
+DTO - 사용되는 모든 데이터값 (변수명 선언)
+
+* WebContent/bbs      /     (WebContent/up   /   WebContent/event    /    WebContent/contact)
+bbsList 글목록 (글쓰기, 검색하기)
+bbsRetrieve 글상세보기 (수정하기, 글목록 돌아가기)
+bbsUpdate 글 수정하기 (수정하기, 삭제하기, 글목록 돌아가기)
+bbsWrite 글쓰기 화면
+
+==============================================================
+게시판 작동만 확인하려면
+WebContent/index2.jsp 로 접속
+
+회원가입->로그인 후 아이디값도 함께 확인하려면
+WebContent/member/main.jsp 로 접속
+==============================================================
+MVC패턴
+
+Main -> List.Controller -> list.jsp -> Write.Controller -> write.jsp -> (submit) list.controller
+-> (상세보기) retrieve.controller -> retrieve.jsp -> (수정) update.controller / (삭제) delete.controller
+==============================================================
+
+문의 게시판(답글 - 사용자가 문의글을 남기면 답글 형식으로 관리자가 답을 남긴다 이때 한 게시글에 답글 1개씩)
+
+현재 일반 게시글 작성 후 상세보고 수정/삭제 기능까진 구현
+문의 게시글 글쓰기 누르면 작성창에 제목 : [답변] 이 뜨면서 글 쓰는 창까지 완료
+문의 게시글 저장부터 오류 발생
+
+필요한 사항 : 문의 게시글 작성 / 문의 게시글 상세보기 / 문의 게시글 수정, 삭제 기능
+	     일반 게시글, 문의 게시글 모두 제목 부분에 글자수 지정, 글자수 초과시 "..." 처리
+ 
+
